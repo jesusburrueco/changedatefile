@@ -1,0 +1,14 @@
+# Ruta del archivo al que se le cambiará la fecha
+$rutaArchivo = ".\cambiar fecha.txt"
+ 
+# Nueva fecha a asignar (puedes cambiarla por la fecha deseada)
+$nuevaFecha = Get-Date "2000-01-10"
+ 
+# Cambiar la fecha de creación y la fecha de modificación del archivo
+Set-ItemProperty -Path $rutaArchivo -Name CreationTime -Value $nuevaFecha
+Set-ItemProperty -Path $rutaArchivo -Name LastWriteTime -Value $nuevaFecha
+ 
+# Mostrar el resultado
+Write-Host "La fecha de creación y modificación del archivo '$rutaArchivo' han sido cambiadas a '$nuevaFecha'."
+ 
+Get-ChildItem $rutaArchivo
